@@ -1,0 +1,14 @@
+---
+import Link from "./shared/Link.astro";
+import presentation from "@/data/presentation";
+---
+<ul class="flex flex-wrap flex-row gap-2">
+  {presentation.socials.map((link, index) => (
+    <>
+      <li class="hover:text-neutral-100" aria-label={link.label}>
+        <Link href={link.link} label={link.label} />
+      </li>
+      {index < presentation.socials.length - 1 && <li>/</li>}
+    </>
+  ))}
+</ul>
