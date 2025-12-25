@@ -1,0 +1,63 @@
+<div
+    class="accordion group relative rounded-md cursor-pointer hover:bg-white/5 hover:backdrop-blur-sm"
+>
+    <div
+        class="accordion__button"
+        id="accordion-menu-button"
+        aria-expanded="false"
+        aria-controls="accordion-menu-content"
+    >
+        <slot name="parentOrganization" />
+    </div>
+
+    <div
+        id="accordion-menu-content"
+        aria-labelledby="accordion-menu-button"
+        class="accordion__content max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out"
+    >
+        <div class="px-3 pb-2 sm:px-4">
+            <slot name="clientOrganization" />
+        </div>
+    </div>
+</div>
+
+<script>
+    function accordionSetup() {
+        const accordionMenus = document.querySelectorAll<HTMLElement>(
+            ".accordion",
+        );
+
+        accordionMenus.forEach((accordionMenu) => {
+            const accordionButton = accordionMenu.querySelector<HTMLElement>(
+                ".accordion__button",
+            );
+            const accordionContent = accordionMenu.querySelector<HTMLElement>(
+                ".accordion__content",
+            );
+
+            if (accordionButton && accordionContent) {
+                accordionButton.addEventListener("click", (event) => {
+                    const isOpen = accordionMenu.classList.contains("active");
+
+                    accordionMenu.classList.toggle("active");
+                    accordionButton.setAttribute(
+                        "aria-expanded",
+                        String(!isOpen),
+                    );
+
+                    if (!isOpen) {
+                        accordionContent.style.maxHeight =
+                            accordionContent.scrollHeight + "px";
+                    } else {
+                        accordionContent.style.maxHeight = "0px";
+                    }
+
+                    event.preventDefault();
+                });
+            }
+        });
+    }
+
+    accordionSetup();
+    document.addEventListener("astro:after-swap", accordionSetup);
+</script>
