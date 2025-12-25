@@ -5,7 +5,7 @@ export default function robots() {
                 userAgent: '*',
             },
         ],
-        sitemap: 'https://www.harsshhh.com/sitemap.xml',
-        host: 'https://www.harsshhh.com',
+        sitemap: 'https://www.hrshbrdhnn.in/sitemap.xml',
+        host: 'https://www.hrshbrdhnn.in',
     };
 }

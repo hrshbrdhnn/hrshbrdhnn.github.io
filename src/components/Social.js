@@ -5,23 +5,23 @@ const Social = () => {
     const socialLinks = [
         {
             aria: 'X',
-            href: 'https://twitter.com/harsshhhtwt',
+            href: 'https://twitter.com/hrshbrdhnn',
         },
         {
             aria: 'GitHub',
-            href: 'https://github.com/harsshhhgit',
+            href: 'https://github.com/hrshbrdhnn',
         },
         {
             aria: 'LinkedIn',
-            href: 'https://linkedin.com/in/harsshhh',
+            href: 'https://linkedin.com/in/hrshbrdhnn',
         },
         {
             aria: 'YouTube',
-            href: 'https://www.youtube.com/@harsshhhyt',
+            href: 'https://www.youtube.com/@hrshbrdhnnyt',
         },
         {
             aria: 'Instagram',
-            href: 'https://www.instagram.com/harsshhhig',
+            href: 'https://www.instagram.com/hrshbrdhnn',
         },
         {
             aria: 'Discord',

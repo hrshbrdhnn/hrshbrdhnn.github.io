@@ -5,21 +5,21 @@ import Header from '@/components/Header'
 import BlurCircle from '@/components/BlurCircle'
 
 export const metadata = {
-  metadataBase: new URL('https://www.harsshhh.com'),
+  metadataBase: new URL('https://www.hrshbrdhnn.in'),
   title: { 
     default: 'Harshbardhan Singh', 
-    template: '%s — harsshhh' 
+    template: '%s — hrshbrdhnn' 
   },
   creator: 'Harshbardhan Singh',
   publisher: 'Harshbardhan Singh',
   description: 'Software Engineer | Student',
-  keywords: ['Harshbardhan Singh', 'harsshhhgit', 'harsshhh'],
-  authors: [{ name: 'Harshbardhan Singh', url: 'https://www.harsshhh.com' }],
+  keywords: ['Harshbardhan Singh', 'hrshbrdhnn'],
+  authors: [{ name: 'Harshbardhan Singh', url: 'https://www.hrshbrdhnn.in' }],
   colorScheme: 'dark',
   openGraph: {
     title: 'Harshbardhan Singh',
     description: 'Software Engineer | Student',
-    url: 'https://www.harsshhh.com',
+    url: 'https://www.hrshbrdhnn.in',
     siteName: 'Harshbardhan Singh',
     locale: 'en_US',
     type: 'website',
