@@ -7,7 +7,7 @@ const Header = () => {
     const currentRoute = usePathname()
     return (
         <header className='z-40 flex w-full flex-col gap-2 md:flex-row md:justify-between'>
-            <Link className='hover:text-neutral-100' href={`mailto:harsshhh.pro@gmail.com`}>harsshhh.pro@gmail.com</Link>
+            <Link className='hover:text-neutral-100' href={`mailto:hrshbrdhnn@gmail.com`}>hrshbrdhnn@gmail.com</Link>
             <nav>
                 <ul className='flex flex-row gap-2'>
                     <li><Link href={`/`} className={currentRoute === '/' ? 'text-neutral-100' : 'hover:text-neutral-100 transition-colors duration-150'}>Home</Link></li>
