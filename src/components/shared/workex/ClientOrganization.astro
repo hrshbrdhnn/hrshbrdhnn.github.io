@@ -1,0 +1,38 @@
+---
+interface Props {
+    logo: string;
+    company: string;
+    role: string;
+    tech: string;
+    highlights: string[];
+}
+
+const { logo, company, role, tech, highlights } = Astro.props;
+---
+
+<div class="flex items-start gap-4 pt-2">
+    <img
+        src={logo}
+        alt={`${company} Logo`}
+        class="w-5 h-5 m-2 mt-1"
+        loading="lazy"
+    />
+
+    <div>
+        <p class="text-sm font-semibold text-white">
+            {company}
+        </p>
+
+        <p class="text-xs text-gray-400 mb-2">
+            {role}
+        </p>
+
+        <p class="text-xs text-gray-300">
+            Tech: {tech}
+        </p>
+
+        <ul class="mt-2 list-disc list-inside text-sm text-gray-400 space-y-1">
+            {highlights.map((item) => <li>{item}</li>)}
+        </ul>
+    </div>
+</div>

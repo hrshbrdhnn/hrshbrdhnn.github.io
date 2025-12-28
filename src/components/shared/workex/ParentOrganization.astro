@@ -1,0 +1,32 @@
+---
+interface Props {
+    logo: string;
+    company: string;
+    role: string;
+    duration: string;
+}
+
+const { logo, company, role, duration } = Astro.props;
+---
+
+<div class="flex items-center justify-between px-3 py-2 rounded-md bg-black/10">
+    <div class="flex items-center gap-4">
+        <img
+            src={logo}
+            alt={`${company} Logo`}
+            class="w-10 h-10 rounded-full"
+            loading="lazy"
+        />
+        <div>
+            <p class="text-sm font-semibold text-white">
+                {company}
+            </p>
+            <p class="text-xs text-gray-400">
+                {role}
+            </p>
+        </div>
+    </div>
+    <p class="text-xs text-gray-400">
+        {duration}
+    </p>
+</div>
