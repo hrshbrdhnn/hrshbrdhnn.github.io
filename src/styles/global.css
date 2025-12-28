@@ -1,5 +1,59 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
-    --font-sans: var(--font-open-sans);
+  --font-sans: var(--font-open-sans);
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+pre{
+  @apply border border-neutral-800 !bg-neutral-900 rounded-lg p-2;
+}
+
+pre code {
+  @apply text-xs
+}
+
+pre {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.prose :not(pre) > code {
+  @apply bg-black/50 rounded-lg p-1 font-normal text-[#FF7B72];
+  /* background-color: #00000080;
+  color: #dc2626;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-weight: normal;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; */
+}
+
+/* Remove Tailwind Typography plugin's fake backticks */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+
+/* Remove Tailwind's fake backticks */
+/* .prose code::before,
+.prose code::after {
+  content: none;
+} */
+
+
+/* .astro-code,
+.astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+} */
