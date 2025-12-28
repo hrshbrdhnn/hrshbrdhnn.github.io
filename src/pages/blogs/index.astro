@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import formatDate from "../../utils/formatDate";
+
+const blogs = (await getCollection("blog")).filter(
+	(entry) => entry.data.isPublished && !entry.data.isDraft,
+);
+---
+
+<Layout>
+	<ul class="space-y-2">
+		{
+			blogs.map((blog) => (
+				<li>
+					<a
+						href={`/blogs/${blog.id}`}
+						class="group flex flex-col sm:flex-row justify-between items-start sm:gap-4 gap-2 px-2 py-3 rounded-md hover:bg-neutral-800/50 transition"
+					>
+						<div>
+							<h3 class="text-base font-medium text-neutral-200 group-hover:text-white">
+								{blog.data.title}
+							</h3>
+							<p class="text-sm text-neutral-400 mt-0.5">
+								{blog.data.description}
+							</p>
+						</div>
+						<span class="text-xs text-neutral-500 shrink-0 pt-1">
+							{formatDate(blog.data.publishedAt)}
+						</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
