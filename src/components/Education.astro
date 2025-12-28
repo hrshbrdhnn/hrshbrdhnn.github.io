@@ -1,0 +1,31 @@
+---
+import presentation from "@/data/presentation";
+import { Image } from "astro:assets";
+---
+
+<section class="flex flex-col gap-6 -mt-6">
+	<h3 class="text-lg font-semibold text-white">Education</h3>
+	<div class="flex flex-col gap-2">
+		{
+			presentation.education.map((edu, index) => (
+				<div class="flex items-center justify-between px-3 py-2 rounded-md">
+					<div class="flex items-center gap-4">
+						<img
+							src={edu.institutionLogo}
+							class="w-10 h-10 rounded-full"
+							alt={edu.institutionLogoAltText}
+							loading="lazy"
+						/>
+						<div>
+							<p class="text-sm font-semibold text-white">
+								{edu.institution}
+							</p>
+							<p class="text-xs text-gray-400">{edu.course}</p>
+						</div>
+					</div>
+					<p class="text-xs text-gray-400">{edu.duration}</p>
+				</div>
+			))
+		}
+	</div>
+</section>
