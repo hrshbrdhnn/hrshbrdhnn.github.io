@@ -1,19 +1,39 @@
-<article class="flex flex-col gap-6">
-	<h3 class="text-lg font-semibold text-white">Work Experience</h3>
-	<div class="flex flex-col gap-2">
-		<div class="flex items-center justify-between px-3 py-2 rounded-md">
-			<div class="flex items-center gap-4">
-				<img
-					src="https://cdn.brandfetch.io/id8i2DmKRE/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B"
-					class="w-10 h-10 rounded-full"
-					alt="HCLTech Logo"
+---
+import Accordion from "../components/shared/Accordion.astro";
+import ParentOrganization from "./shared/workex/ParentOrganization.astro";
+import ClientOrganization from "./shared/workex/ClientOrganization.astro";
+import { workExperience } from "../data/presentation";
+---
+
+<section class="flex flex-col gap-6">
+  	<h3 class="text-lg font-semibold text-white">Work Experience</h3>
+
+  	<div class="flex flex-col gap-2">
+		{workExperience.map((exp) => (
+			<Accordion>
+				<!-- Parent Company -->
+				<div slot="header">
+				<ParentOrganization
+					logo={exp.parent.logo}
+					company={exp.parent.company}
+					role={exp.parent.role}
+					duration={exp.parent.duration}
 				/>
-				<div>
-					<p class="text-sm font-semibold text-white">HCLTech</p>
-					<p class="text-xs text-gray-400">Software Engineer</p>
 				</div>
-			</div>
-			<p class="text-xs text-gray-400">Dec 2022 - Present</p>
-		</div>
-	</div>
-</article>
+
+				<!-- Client Work -->
+				<div slot="content">
+				{exp.clients.map((client) => (
+					<ClientOrganization
+					logo={client.logo}
+					company={client.company}
+					role={client.role}
+					tech={client.tech}
+					highlights={client.highlights}
+					/>
+				))}
+				</div>
+			</Accordion>
+		))}
+  	</div>
+</section>

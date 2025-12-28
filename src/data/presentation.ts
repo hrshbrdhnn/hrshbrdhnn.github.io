@@ -20,6 +20,24 @@ type Presentation = {
     profile?: string;
 };
 
+export interface ClientExperience {
+    logo: string;
+    company: string;
+    role: string;
+    tech: string;
+    highlights: string[];
+}
+
+export interface WorkExperience {
+    parent: {
+        logo: string;
+        company: string;
+        role: string;
+        duration: string;
+    };
+    clients: ClientExperience[];
+}
+
 const presentation: Presentation = {
     mail: "hrshbrdhnn@gmail.com",
     title: "Hi, I'm Harsh ",
@@ -76,5 +94,33 @@ const presentation: Presentation = {
         }
     ]
 };
+
+
+export const workExperience: WorkExperience[] = [
+    {
+        parent: {
+            logo: "https://cdn.brandfetch.io/id8i2DmKRE/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B",
+            company: "HCLTech",
+            role: "Software Engineer",
+            duration: "Dec 2022 - Present",
+        },
+        clients: [
+            {
+                logo: "https://cdn.brandfetch.io/idjS8d0kEI/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B",
+                company: "Team Global Express",
+                role: "Support Analyst / Developer",
+                tech: "Java, JSP, SSRS, SQL Server",
+                highlights: [
+                    "Handled and resolved production incidents for a client-facing application, ensuring minimal downtime and quick issue resolution.",
+						"Contributed to a JSP-based project by addressing and remediating critical security vulnerabilities.",
+						"Implemented new features in a JSP application based on evolving client requirements.",
+						"Developed and optimized stored procedures for SSRS (SQL Server Reporting Services) reports, and contributed to the design and development of several reports.",
+						"Wrote efficient archival queries to maintain database performance and ensure there was no degradation in response times for critical tables.",
+                ],
+            },
+        ],
+    },
+    
+];
 
 export default presentation;
