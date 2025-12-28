@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Code } from "astro:components";
+---
+
+<!-- Syntax highlight some JavaScript code. -->
+<Layout>
+  <Code
+    code={`// 404 page not found
+function launch() {
+    if(inDevelopment) {
+        throw "fuck off b*tch!!!"
+    }
+}
+// Go Home!`}
+    lang="js" theme={'gruvbox-dark-medium'}
+    class="border-none !bg-black/80 !p-4"
+  />
+</Layout>
