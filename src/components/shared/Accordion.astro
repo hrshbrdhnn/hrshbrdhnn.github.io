@@ -1,60 +1,57 @@
-<div
-    class="accordion group relative rounded-md cursor-pointer hover:bg-white/5 hover:backdrop-blur-sm"
->
-    <div
-        class="accordion__button"
-        id="accordion-menu-button"
+<div class="accordion group relative rounded-md hover:bg-white/5 hover:backdrop-blur-sm">
+    <button
+        type="button"
+        class="accordion__button w-full text-left"
         aria-expanded="false"
-        aria-controls="accordion-menu-content"
+        aria-controls="accordion-content"
     >
-        <slot name="parentOrganization" />
-    </div>
+        <slot name="header" />
+    </button>
 
     <div
-        id="accordion-menu-content"
-        aria-labelledby="accordion-menu-button"
+        id="accordion-content"
         class="accordion__content max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out"
     >
         <div class="px-3 pb-2 sm:px-4">
-            <slot name="clientOrganization" />
+            <slot name="content" />
         </div>
     </div>
 </div>
 
 <script>
     function accordionSetup() {
-        const accordionMenus = document.querySelectorAll<HTMLElement>(
-            ".accordion",
-        );
+        const accordions = document.querySelectorAll(".accordion");
 
-        accordionMenus.forEach((accordionMenu) => {
-            const accordionButton = accordionMenu.querySelector<HTMLElement>(
-                ".accordion__button",
-            );
-            const accordionContent = accordionMenu.querySelector<HTMLElement>(
-                ".accordion__content",
-            );
+        accordions.forEach((accordion, index) => {
+            const button = accordion.querySelector(
+                ".accordion__button"
+            ) as HTMLButtonElement | null;
 
-            if (accordionButton && accordionContent) {
-                accordionButton.addEventListener("click", (event) => {
-                    const isOpen = accordionMenu.classList.contains("active");
+            const content = accordion.querySelector(
+                ".accordion__content"
+            ) as HTMLElement | null;
 
-                    accordionMenu.classList.toggle("active");
-                    accordionButton.setAttribute(
-                        "aria-expanded",
-                        String(!isOpen),
-                    );
+            if (!button || !content) return;
 
-                    if (!isOpen) {
-                        accordionContent.style.maxHeight =
-                            accordionContent.scrollHeight + "px";
-                    } else {
-                        accordionContent.style.maxHeight = "0px";
-                    }
+            const buttonId = `accordion-button-${index}`;
+            const contentId = `accordion-content-${index}`;
 
-                    event.preventDefault();
-                });
-            }
+            button.id = buttonId;
+            content.id = contentId;
+
+            button.setAttribute("aria-controls", contentId);
+            content.setAttribute("aria-labelledby", buttonId);
+
+            button.addEventListener("click", () => {
+                const isOpen = button.getAttribute("aria-expanded") === "true";
+
+                button.setAttribute("aria-expanded", String(!isOpen));
+                accordion.classList.toggle("active", !isOpen);
+
+                content.style.maxHeight = !isOpen
+                    ? `${content.scrollHeight}px`
+                    : "0px";
+            });
         });
     }
 
