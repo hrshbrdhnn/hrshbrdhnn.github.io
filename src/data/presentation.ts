@@ -43,7 +43,7 @@ const presentation: Presentation = {
     title: "Hi, I'm Harsh ",
     profile: "https://avatars.githubusercontent.com/u/93096721?v=4",
     description:
-        "Namaste, I'm a **Indian sofware engineer** working in a service-based MNC and simultaneously pursuing bachelor's degree from **BITS Pilani**. Besides that, I am learning **DevOps** and I'm interested in **Linux**, **CyberSecurity**, alongside other random computer things.",
+        "Namaste, I am an **Indian software engineer** working at a service-based MNC and currently pursuing a bachelor’s degree from **BITS Pilani**. I am actively learning **DevOps** and have a keen interest in **Linux**, **Cybersecurity**, and emerging technologies in the computing domain.",
     socials: [
         {
             label: 'X',
